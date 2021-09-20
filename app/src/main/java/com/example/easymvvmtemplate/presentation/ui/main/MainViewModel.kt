@@ -1,16 +1,12 @@
-package com.example.easymvvmtemplate.presentation.ui
+package com.example.easymvvmtemplate.presentation.ui.main
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.easymvvmtemplate.data.entity.MovieEntity
-import com.example.easymvvmtemplate.data.remote.movie.MovieDTO
 import com.example.easymvvmtemplate.data.repository.MovieRepository
 import com.example.easymvvmtemplate.presentation.BaseViewModel
 import kotlinx.coroutines.launch
-import retrofit2.Response
 
 class MainViewModel(
     private val repository: MovieRepository
