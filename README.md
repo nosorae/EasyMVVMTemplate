@@ -1,6 +1,6 @@
 # EasyMVVMTemplate
 
-- feature
-Koin
-LiveData 
-DataBinding
+### feature
+- Koin
+- LiveData
+- DataBinding
