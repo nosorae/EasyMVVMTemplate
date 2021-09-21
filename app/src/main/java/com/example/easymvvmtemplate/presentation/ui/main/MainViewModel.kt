@@ -18,6 +18,8 @@ class MainViewModel(
      fun fetchMovies(keyword: String, display: Int = 30) = viewModelScope.launch {
          val response = repository.getMovieService(keyword, display)?.let {
              _movieListLiveData.postValue(it.body()?.movieEntities ?: listOf())
+         } ?: kotlin.run {
+
          }
 
     }

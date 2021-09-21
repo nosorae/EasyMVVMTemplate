@@ -9,11 +9,16 @@ import retrofit2.Response
 class MovieRepository(
     private val movieService: MovieService,
     private val ioDispatcher: CoroutineDispatcher
-): Repository {
+) {
 
     suspend fun getMovieService(keyword: String, display: Int): Response<MovieDTO>? = withContext(ioDispatcher) {
-        movieService.getMovieList(keyword, display)
+        try {
+            movieService.getMovieList(keyword, display)
+        } catch (e: Exception) {
+            null
+        }
     }
 
 
 }
+

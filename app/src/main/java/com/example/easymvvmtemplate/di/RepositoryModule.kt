@@ -9,7 +9,6 @@ internal val repositoryModule = module {
 
     // Dispatchers
     single { Dispatchers.IO }
-    single { Dispatchers.Main }
 
     single { MovieRepository(get(), get()) }
 

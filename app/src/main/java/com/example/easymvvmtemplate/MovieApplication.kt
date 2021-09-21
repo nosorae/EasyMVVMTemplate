@@ -20,7 +20,5 @@ class MovieApplication: Application() {
             modules(viewModelModule)
         }
 
-
-
     }
 }

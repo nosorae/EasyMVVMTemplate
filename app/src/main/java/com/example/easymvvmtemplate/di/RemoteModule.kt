@@ -27,7 +27,7 @@ internal fun provideMovieRetrofit(): Retrofit =
         .client(buildOkHttpClient())
         .build()
 
-internal fun provideMovieService(retrofit: Retrofit) =
+internal fun provideMovieService(retrofit: Retrofit): MovieService =
     retrofit.create(MovieService::class.java)
 
 
