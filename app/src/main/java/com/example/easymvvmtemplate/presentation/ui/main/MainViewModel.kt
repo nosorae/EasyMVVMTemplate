@@ -12,17 +12,4 @@ class MainViewModel(
     private val repository: MovieRepository
 ): BaseViewModel() {
 
-    private val _movieListLiveData = MutableLiveData<List<MovieEntity>>()
-    val movieListLiveData: LiveData<List<MovieEntity>> = _movieListLiveData
-
-     fun fetchMovies(keyword: String, display: Int = 30) = viewModelScope.launch {
-         val response = repository.getMovieService(keyword, display)?.let {
-             _movieListLiveData.postValue(it.body()?.movieEntities ?: listOf())
-         } ?: kotlin.run {
-
-         }
-
-    }
-
-
 }
