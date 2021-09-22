@@ -1,4 +1,4 @@
-# Easy android clean architecture template with MVVM 
+# Easy android MVVM template with clean architecture
 
 ### feature
 - Koin
