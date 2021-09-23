@@ -22,7 +22,9 @@ internal class MainActivity : BaseActivity<MainViewModel>() {
 
     private fun setViewPager() = with(binding){
         mainViewpager.adapter = MainVPAdapter(this@MainActivity)
+
         val tabNameList = listOf<String>("검색", "좋아요")
+
         TabLayoutMediator(mainTablayout, mainViewpager) { tab, position ->
             tab.text = tabNameList[position]
         }.attach()

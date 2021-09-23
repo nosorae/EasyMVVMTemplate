@@ -14,7 +14,9 @@ import kotlinx.coroutines.launch
 class SearchViewModel(
     private val repository: MovieRepository
     ) : BaseViewModel() {
+    //viewModel , lifecycle -> jetpack lifecycle library
 
+    //backing property
     private val _movieListLiveData = MutableLiveData<List<MovieEntity>>().apply { value = emptyList() }
     val movieListLiveData: LiveData<List<MovieEntity>> get() = _movieListLiveData
 
