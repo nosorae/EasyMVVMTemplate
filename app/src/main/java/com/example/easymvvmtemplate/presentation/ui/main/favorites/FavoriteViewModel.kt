@@ -13,13 +13,14 @@ class FavoriteViewModel(
     private val repository: MovieRepository
     ) : BaseViewModel() {
 
-    private val _likeListLiveData = MutableLiveData<List<MovieEntity>>().apply { value = emptyList() }
+    private val _likeListLiveData =
+        MutableLiveData<List<MovieEntity>>().apply { value = emptyList() }
     val likeListLiveData: LiveData<List<MovieEntity>> get() = _likeListLiveData
 
-    val noLike : LiveData<Boolean>
-        get() = Transformations.map(_likeListLiveData){
-        it.isEmpty()
-    }
+    val noLike: LiveData<Boolean>
+        get() = Transformations.map(_likeListLiveData) {
+            it.isEmpty()
+        }
 
     //좋아요 삭제 기능을 넣는다면 two-way data binding 코드로 보여줄 수 있음.
 

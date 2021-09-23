@@ -6,8 +6,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.example.easymvvmtemplate.R
+import com.example.easymvvmtemplate.presentation.BaseFragment
 
-class FavoriteFragment : Fragment() {
+internal class FavoriteFragment : BaseFragment<FavoriteViewModel>() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -17,4 +18,7 @@ class FavoriteFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_favorite, container, false)
     }
 
+    override fun observeData() {
+
+    }
 }

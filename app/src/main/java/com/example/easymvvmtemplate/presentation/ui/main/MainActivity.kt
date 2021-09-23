@@ -1,5 +1,6 @@
 package com.example.easymvvmtemplate.presentation.ui.main
 
+import android.Manifest
 import android.os.Bundle
 import com.example.easymvvmtemplate.databinding.ActivityMainBinding
 import com.example.easymvvmtemplate.presentation.BaseActivity
@@ -9,8 +10,12 @@ import org.koin.android.viewmodel.ext.android.viewModel
 
 internal class MainActivity : BaseActivity<MainViewModel>() {
 
-    private lateinit var binding : ActivityMainBinding
+    private lateinit var binding: ActivityMainBinding
     override val viewModel: MainViewModel by viewModel() //viewModel 이 필요가 없음.
+
+
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,7 +25,7 @@ internal class MainActivity : BaseActivity<MainViewModel>() {
         setViewPager()
     }
 
-    private fun setViewPager() = with(binding){
+    private fun setViewPager() = with(binding) {
         mainViewpager.adapter = MainVPAdapter(this@MainActivity)
 
         val tabNameList = listOf<String>("검색", "좋아요")
@@ -30,5 +35,11 @@ internal class MainActivity : BaseActivity<MainViewModel>() {
         }.attach()
     }
 
+
+
+
+
     override fun observeData() = Unit
+
+
 }
