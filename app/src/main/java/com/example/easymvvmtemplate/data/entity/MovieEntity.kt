@@ -17,9 +17,9 @@ data class MovieEntity(
     @SerializedName("pubDate")
     val pubDate: String?,
     @SerializedName("subtitle")
-    val subtitle: String?,
+    var subtitle: String?,
     @SerializedName("title")
-    val title: String?,
+    var title: String?,
     @SerializedName("userRating")
     val userRating: String?
 )

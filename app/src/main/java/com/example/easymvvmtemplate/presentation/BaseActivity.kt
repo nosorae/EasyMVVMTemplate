@@ -20,18 +20,6 @@ internal abstract class BaseActivity<VM: BaseViewModel>: AppCompatActivity() {
     abstract fun observeData()
 
 
-    private fun checkFineLocationSelfPermission(): Boolean =
-        (ContextCompat.checkSelfPermission(
-            this,
-            Manifest.permission.ACCESS_COARSE_LOCATION
-        ) == PackageManager.PERMISSION_GRANTED) &&
-                (ContextCompat.checkSelfPermission(
-                    this,
-                    Manifest.permission.ACCESS_FINE_LOCATION
-                ) == PackageManager.PERMISSION_GRANTED)
-
-
-
     internal fun showToast(stringResourceId: Int) {
         Toast.makeText(this, getString(stringResourceId), Toast.LENGTH_SHORT).show()
     }

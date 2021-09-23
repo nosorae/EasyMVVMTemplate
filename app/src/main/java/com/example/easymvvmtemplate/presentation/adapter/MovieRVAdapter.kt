@@ -9,9 +9,9 @@ import com.example.easymvvmtemplate.data.entity.MovieEntity
 import com.example.easymvvmtemplate.databinding.ViewholderMovieItemBinding
 import com.example.easymvvmtemplate.presentation.ui.main.search.SearchViewModel
 
-class MovieAdapter(
+class MovieRVAdapter(
     val viewModel : SearchViewModel?
-) : RecyclerView.Adapter<MovieAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<MovieRVAdapter.ViewHolder>() {
     private var movieList: List<MovieEntity> = listOf()
 
     inner class ViewHolder(
@@ -26,8 +26,12 @@ class MovieAdapter(
                 .apply(RequestOptions.centerCropTransform())
                 .into(moviePoster)
 
+            data.title = data.title?.replace(Regex("</b>"), "\"")
+            data.title = data.title?.replace(Regex("<b>"), "\"")
+            data.subtitle = data.subtitle?.replace(Regex("</b>"), "\"")
+            data.subtitle = data.subtitle?.replace(Regex("<b>"), "\"")
             movie = data
-            viewModel = this@MovieAdapter.viewModel
+            viewModel = this@MovieRVAdapter.viewModel
             executePendingBindings()
         }
     }

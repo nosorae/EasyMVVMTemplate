@@ -1,4 +1,6 @@
 package com.example.easymvvmtemplate.presentation.ui.main.favorites
 
-class FavoriteViewModel {
+import com.example.easymvvmtemplate.presentation.BaseViewModel
+
+class FavoriteViewModel: BaseViewModel() {
 }
