@@ -3,8 +3,6 @@ package com.example.easymvvmtemplate.presentation.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
 import com.example.easymvvmtemplate.data.entity.MovieEntity
 import com.example.easymvvmtemplate.databinding.ViewholderMovieItemBinding
 import com.example.easymvvmtemplate.presentation.ui.main.search.SearchViewModel
@@ -20,16 +18,13 @@ class MovieRVAdapter(
 
         fun bindData(data: MovieEntity) = with(binding) {
 
-            Glide.with(root)
-                .load(data.image)
-                .apply(RequestOptions().override(300, 450))
-                .apply(RequestOptions.centerCropTransform())
-                .into(moviePoster)
+            //bindingAdapter
 
             data.title = data.title?.replace(Regex("</b>"), "\"")
             data.title = data.title?.replace(Regex("<b>"), "\"")
             data.subtitle = data.subtitle?.replace(Regex("</b>"), "\"")
             data.subtitle = data.subtitle?.replace(Regex("<b>"), "\"")
+
             movie = data
             viewModel = this@MovieRVAdapter.viewModel
             executePendingBindings()

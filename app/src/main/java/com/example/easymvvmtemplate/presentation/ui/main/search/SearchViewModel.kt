@@ -31,7 +31,7 @@ class SearchViewModel(
     }
     fun onMovieItemClicked(movie : MovieEntity) {
         Log.d("searchViewModel", "${movie.title} clicked!")
-        //좋아요 등록 또는 상세페이지 로직.
+        //좋아요 등록? 또는 상세페이지 로직.
     }
 
 }

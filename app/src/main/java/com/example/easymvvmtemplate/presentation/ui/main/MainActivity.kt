@@ -2,6 +2,7 @@ package com.example.easymvvmtemplate.presentation.ui.main
 
 import android.Manifest
 import android.os.Bundle
+import com.example.easymvvmtemplate.R
 import com.example.easymvvmtemplate.databinding.ActivityMainBinding
 import com.example.easymvvmtemplate.presentation.BaseActivity
 import com.example.easymvvmtemplate.presentation.adapter.MainVPAdapter
@@ -28,7 +29,7 @@ internal class MainActivity : BaseActivity<MainViewModel>() {
     private fun setViewPager() = with(binding) {
         mainViewpager.adapter = MainVPAdapter(this@MainActivity)
 
-        val tabNameList = listOf<String>("검색", "좋아요")
+        val tabNameList = listOf<String>(resources.getString(R.string.search_tab), resources.getString(R.string.like_tab))
 
         TabLayoutMediator(mainTablayout, mainViewpager) { tab, position ->
             tab.text = tabNameList[position]
