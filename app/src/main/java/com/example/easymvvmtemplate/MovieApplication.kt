@@ -8,6 +8,11 @@ import com.example.easymvvmtemplate.di.viewModelModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
+/**
+ * 출처 :
+ * https://www.youtube.com/watch?v=EF33KmyprEQ&t=751s
+ * https://levelup.gitconnected.com/what-is-screaming-architecture-f7c327af9bb2
+ */
 class MovieApplication: Application() {
     override fun onCreate() {
         super.onCreate()

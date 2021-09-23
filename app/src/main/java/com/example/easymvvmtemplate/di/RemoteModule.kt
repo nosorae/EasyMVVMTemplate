@@ -1,8 +1,7 @@
 package com.example.easymvvmtemplate.di
 
-import com.example.easymvvmtemplate.data.remote.Url
+import com.example.easymvvmtemplate.common.Constants
 import com.example.easymvvmtemplate.data.remote.movie.MovieService
-import com.google.gson.Gson
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -22,7 +21,7 @@ internal val remoteModule = module {
 
 internal fun provideMovieRetrofit(): Retrofit =
     Retrofit.Builder()
-        .baseUrl(Url.NAVER_API_URL)
+        .baseUrl(Constants.BASE_URL)
         .addConverterFactory(GsonConverterFactory.create(GsonBuilder().setLenient().create()))
         .client(buildOkHttpClient())
         .build()
