@@ -1,4 +1,4 @@
-package com.example.easymvvmtemplate.presentation
+package com.example.easymvvmtemplate.presentation.base
 
 import androidx.lifecycle.ViewModel
 

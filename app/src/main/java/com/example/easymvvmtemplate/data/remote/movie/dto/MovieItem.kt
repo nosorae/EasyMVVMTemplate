@@ -1,11 +1,12 @@
-package com.example.easymvvmtemplate.data.entity
+package com.example.easymvvmtemplate.data.remote.movie.dto
 
 
 
+import com.example.easymvvmtemplate.domain.model.Movie
 import com.google.gson.annotations.SerializedName
 
 
-data class MovieEntity(
+data class MovieItem(
     @SerializedName("actor")
     val actor: String?,
     @SerializedName("director")
@@ -23,3 +24,15 @@ data class MovieEntity(
     @SerializedName("userRating")
     val userRating: String?
 )
+
+fun MovieItem.toMovie(): Movie =
+    Movie(
+        actor = actor,
+        director = director,
+        image = image,
+        link = link,
+        pubDate = pubDate,
+        subtitle = subtitle,
+        title = title,
+        userRating = userRating
+    )

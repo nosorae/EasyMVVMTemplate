@@ -1,23 +1,23 @@
 package com.example.easymvvmtemplate.presentation.adapter
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.easymvvmtemplate.data.entity.MovieEntity
+import com.example.easymvvmtemplate.data.remote.movie.dto.MovieItem
 import com.example.easymvvmtemplate.databinding.ViewholderMovieItemBinding
+import com.example.easymvvmtemplate.domain.model.Movie
 import com.example.easymvvmtemplate.presentation.ui.main.search.SearchViewModel
 
 class MovieRVAdapter(
     val viewModel : SearchViewModel?
 ) : RecyclerView.Adapter<MovieRVAdapter.ViewHolder>() {
-    private var movieList: List<MovieEntity> = listOf()
+    private var movieList: List<Movie> = listOf()
 
     inner class ViewHolder(
         private val binding: ViewholderMovieItemBinding
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        fun bindData(data: MovieEntity) = with(binding) {
+        fun bindData(data: Movie) = with(binding) {
 
             //bindingAdapter
 
@@ -45,7 +45,7 @@ class MovieRVAdapter(
 
     override fun getItemCount(): Int = movieList.size
 
-    fun setMovieList(movieList: List<MovieEntity>) {
+    fun setMovieList(movieList: List<Movie>) {
         this.movieList = movieList
         notifyDataSetChanged()
     }

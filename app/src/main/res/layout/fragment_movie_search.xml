@@ -18,6 +18,8 @@
     android:layout_height="match_parent"
     tools:context=".presentation.ui.main.MainActivity">
 
+
+
     <EditText
         android:id="@+id/movie_search_et"
         android:layout_width="match_parent"
@@ -54,6 +56,18 @@
         android:textSize="17sp"
         android:textColor="@color/black"
         android:visibility="@{viewModel.noImage ? View.VISIBLE :View.GONE}"
+        />
+
+    <ProgressBar
+        android:id="@+id/search_progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:visibility="gone"
+        tools:visibility="visible"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

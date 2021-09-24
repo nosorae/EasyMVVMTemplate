@@ -1,7 +1,7 @@
 package com.example.easymvvmtemplate.di
 
 import com.example.easymvvmtemplate.common.Constants
-import com.example.easymvvmtemplate.data.remote.movie.MovieService
+import com.example.easymvvmtemplate.data.remote.movie.MovieApi
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -15,7 +15,7 @@ internal val remoteModule = module {
 
 
     single { provideMovieRetrofit() }
-    single { provideMovieService(get()) }
+    single { provideMovieApi(get()) }
 
 }
 
@@ -26,8 +26,8 @@ internal fun provideMovieRetrofit(): Retrofit =
         .client(buildOkHttpClient())
         .build()
 
-internal fun provideMovieService(retrofit: Retrofit): MovieService =
-    retrofit.create(MovieService::class.java)
+internal fun provideMovieApi(retrofit: Retrofit): MovieApi =
+    retrofit.create(MovieApi::class.java)
 
 
 internal fun buildOkHttpClient(): OkHttpClient {
