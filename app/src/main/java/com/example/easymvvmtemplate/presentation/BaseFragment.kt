@@ -10,8 +10,8 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 
-internal abstract class BaseFragment <VM: BaseViewModel>: Fragment() {
-//    abstract val viewModel: VM
+abstract class BaseFragment <VM: BaseViewModel>: Fragment() {
+    abstract val viewModel: VM
 
     override fun onCreateView(
         inflater: LayoutInflater,

@@ -18,38 +18,21 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.DividerItemDecoration.VERTICAL
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.easymvvmtemplate.R
-import com.example.easymvvmtemplate.data.remote.movie.MovieService
-import com.example.easymvvmtemplate.data.repository.MovieRepository
 import com.example.easymvvmtemplate.databinding.FragmentMovieSearchBinding
 import com.example.easymvvmtemplate.presentation.BaseFragment
-import com.example.easymvvmtemplate.presentation.MainViewModelFactory
 import com.example.easymvvmtemplate.presentation.adapter.MovieRVAdapter
-import kotlinx.coroutines.CoroutineDispatcher
-import org.koin.android.viewmodel.ext.android.getViewModel
+import org.koin.android.viewmodel.ext.android.viewModel
 
-internal class SearchFragment : BaseFragment<SearchViewModel>(), View.OnKeyListener {
+class SearchFragment : BaseFragment<SearchViewModel>(), View.OnKeyListener {
 
     private lateinit var binding: FragmentMovieSearchBinding
 
-    //override val viewModel : SearchViewModel by viewModel<SearchViewModel>()
+    override val viewModel : SearchViewModel by viewModel()
     //lazy 는 왜 안 되는지 잘 모르겠음
-    private lateinit var viewModel: SearchViewModel
+//    private lateinit var viewModel: SearchViewModel
 
     private lateinit var movieRVAdapter: MovieRVAdapter
 
-
-    // 의미 없는 그냥 요청해보기 예제
-    private val locationPermissions =
-        registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) { result ->
-            if (result[Manifest.permission.ACCESS_FINE_LOCATION] == true && result[Manifest.permission.ACCESS_COARSE_LOCATION] == true) {
-                // 권한을 허용했을 때의 비즈니스 로직 처리
-                showToast(R.string.toast_accept_location_permission)
-            } else {
-                // 권한 거부했을 때의 비즈니스 로직 처리
-                showToast(R.string.toast_deny_location_permission)
-
-            }
-        }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -59,7 +42,7 @@ internal class SearchFragment : BaseFragment<SearchViewModel>(), View.OnKeyListe
          * viewModel 생성
          */
         //1. Koin 의존성 주입
-        viewModel = getViewModel()
+//        viewModel = getViewModel()
 
         /*
         2. ViewModelProvider.Factory
@@ -92,10 +75,6 @@ internal class SearchFragment : BaseFragment<SearchViewModel>(), View.OnKeyListe
 
         observeData()
         initRecyclerView()
-
-
-        // 의미 없는 그냥 요청해보기 예제
-        requestLocationPermissions()
 
         return binding.root
     }
@@ -137,23 +116,9 @@ internal class SearchFragment : BaseFragment<SearchViewModel>(), View.OnKeyListe
             //data binding 으로 list 넣는 방법?
             Log.d("searchFrag", it.toString())
         }
-        viewModel.noImage.observe(viewLifecycleOwner) {
+//        viewModel.noImage.observe(viewLifecycleOwner) {
 //            binding.searchMovieTv.isVisible = it == true //data binding 으로 넣으면 작동 안 함.
-            Log.d("searchFrag", it.toString())
-        }
-    }
-
-
-    // 의미 없는 그냥 요청해보기 예제
-    private fun requestLocationPermissions() {
-        if (checkLocationPermissions().not()) {
-            locationPermissions.launch(
-                arrayOf(
-                    Manifest.permission.ACCESS_COARSE_LOCATION,
-                    Manifest.permission.ACCESS_FINE_LOCATION
-                )
-            )
-        }
-
+//            Log.d("searchFrag", it.toString())
+//        }
     }
 }

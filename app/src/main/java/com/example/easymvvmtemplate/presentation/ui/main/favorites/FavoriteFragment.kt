@@ -13,10 +13,10 @@ import com.example.easymvvmtemplate.presentation.BaseFragment
 import org.koin.android.ext.android.bind
 import org.koin.android.viewmodel.ext.android.getViewModel
 
-internal class FavoriteFragment : BaseFragment<FavoriteViewModel>() {
+class FavoriteFragment : BaseFragment<FavoriteViewModel>() {
 
     private lateinit var binding : FragmentFavoriteBinding
-//    private lateinit var viewModel: FavoriteViewModel
+    override lateinit var viewModel: FavoriteViewModel
     private var testNum = 0
     //aac viewModel 은 하나만 가능하니까 이거는 실행 불가능? -> yes.
 

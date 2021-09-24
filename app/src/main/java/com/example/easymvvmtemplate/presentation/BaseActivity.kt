@@ -7,7 +7,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 
-internal abstract class BaseActivity<VM: BaseViewModel>: AppCompatActivity() {
+abstract class BaseActivity<VM: BaseViewModel>: AppCompatActivity() {
     abstract val viewModel: VM
 
 
