@@ -1,14 +1,13 @@
-package com.example.easymvvmtemplate.data.remote.movie
+package com.example.easymvvmtemplate.data.remote.movie.dto
 
 
-import com.example.easymvvmtemplate.data.entity.MovieEntity
 import com.google.gson.annotations.SerializedName
 
-data class MovieDTO(
+data class MovieDto(
     @SerializedName("display")
     val display: Int?,
     @SerializedName("items")
-    val movieEntities: List<MovieEntity>?,
+    val movieItems: List<MovieItem>?,
     @SerializedName("lastBuildDate")
     val lastBuildDate: String?,
     @SerializedName("start")

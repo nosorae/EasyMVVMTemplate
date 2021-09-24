@@ -1,16 +1,17 @@
 package com.example.easymvvmtemplate.data.remote.movie
 
 import com.example.easymvvmtemplate.common.Constants
+import com.example.easymvvmtemplate.data.remote.movie.dto.MovieDto
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.Query
 
-interface MovieService {
+interface MovieApi {
     @Headers("X-Naver-Client-Id: Y2NAMEqbtiS3rTm5XPPj", "X-Naver-Client-Secret: I02dkZj3c4")
     @GET(Constants.GET_NAVER_MOVIES)
-    suspend fun getMovieList(
+    suspend fun getMovies(
         @Query("query") keyword: String,
         @Query("display") display: Int,
-    ): Response<MovieDTO>
+    ): MovieDto
 }

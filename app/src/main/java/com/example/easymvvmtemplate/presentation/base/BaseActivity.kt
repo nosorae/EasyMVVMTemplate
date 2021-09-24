@@ -1,11 +1,8 @@
-package com.example.easymvvmtemplate.presentation
+package com.example.easymvvmtemplate.presentation.base
 
-import android.Manifest
-import android.content.pm.PackageManager
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 
 abstract class BaseActivity<VM: BaseViewModel>: AppCompatActivity() {
     abstract val viewModel: VM

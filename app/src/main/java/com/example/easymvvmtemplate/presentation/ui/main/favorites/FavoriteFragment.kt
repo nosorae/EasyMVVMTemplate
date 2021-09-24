@@ -1,17 +1,12 @@
 package com.example.easymvvmtemplate.presentation.ui.main.favorites
 
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
 import com.example.easymvvmtemplate.R
 import com.example.easymvvmtemplate.databinding.FragmentFavoriteBinding
-import com.example.easymvvmtemplate.presentation.BaseFragment
-import org.koin.android.ext.android.bind
-import org.koin.android.viewmodel.ext.android.getViewModel
+import com.example.easymvvmtemplate.presentation.base.BaseFragment
 
 class FavoriteFragment : BaseFragment<FavoriteViewModel>() {
 

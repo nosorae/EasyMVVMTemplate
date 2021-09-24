@@ -2,15 +2,11 @@ package com.example.easymvvmtemplate.presentation.ui.main.favorites
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Transformations
-import androidx.lifecycle.viewModelScope
-import com.example.easymvvmtemplate.data.entity.MovieEntity
-import com.example.easymvvmtemplate.data.repository.MovieRepository
-import com.example.easymvvmtemplate.presentation.BaseViewModel
-import kotlinx.coroutines.launch
+import com.example.easymvvmtemplate.data.repository.MovieRepositoryImpl
+import com.example.easymvvmtemplate.presentation.base.BaseViewModel
 
 class FavoriteViewModel(
-    private val repository: MovieRepository
+    private val repositoryImpl: MovieRepositoryImpl
     ) : BaseViewModel() {
 
     private var _testVar = MutableLiveData<String>()
