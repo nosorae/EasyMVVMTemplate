@@ -2,6 +2,7 @@ package com.example.easymvvmtemplate.presentation.ui.main
 
 import android.Manifest
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import com.example.easymvvmtemplate.R
 import com.example.easymvvmtemplate.databinding.ActivityMainBinding
 import com.example.easymvvmtemplate.presentation.BaseActivity
@@ -13,9 +14,6 @@ internal class MainActivity : BaseActivity<MainViewModel>() {
 
     private lateinit var binding: ActivityMainBinding
     override val viewModel: MainViewModel by viewModel() //viewModel 이 필요가 없음.
-
-
-
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -35,10 +33,6 @@ internal class MainActivity : BaseActivity<MainViewModel>() {
             tab.text = tabNameList[position]
         }.attach()
     }
-
-
-
-
 
     override fun observeData() = Unit
 

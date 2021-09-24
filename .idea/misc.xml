@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/ToyProject/EasyMVVMTemplate/app/src/main/res/layout/fragment_favorite.xml" value="0.14895833333333333" />
+        <entry key="..\:/ToyProject/EasyMVVMTemplate/app/src/main/res/layout/fragment_movie_search.xml" value="0.1" />
         <entry key="..\:/Users/11260/AndroidStudioProjects/EasyMVVMTemplate/app/src/main/res/layout/activity_main.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/11260/AndroidStudioProjects/EasyMVVMTemplate/app/src/main/res/layout/fragment_favorite.xml" value="0.5239583333333333" />
         <entry key="..\:/Users/11260/AndroidStudioProjects/EasyMVVMTemplate/app/src/main/res/layout/fragment_movie_search.xml" value="0.5239583333333333" />

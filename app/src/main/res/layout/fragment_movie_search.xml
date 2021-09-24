@@ -50,9 +50,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:text="영화를 검색해보세요."
+        android:text="@string/search_movie"
         android:textSize="17sp"
         android:textColor="@color/black"
+        android:visibility="@{viewModel.noImage ? View.VISIBLE :View.GONE}"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

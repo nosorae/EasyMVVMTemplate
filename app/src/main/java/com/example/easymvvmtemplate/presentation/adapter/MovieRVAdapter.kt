@@ -1,5 +1,6 @@
 package com.example.easymvvmtemplate.presentation.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -20,10 +21,8 @@ class MovieRVAdapter(
 
             //bindingAdapter
 
-            data.title = data.title?.replace(Regex("</b>"), "\"")
-            data.title = data.title?.replace(Regex("<b>"), "\"")
-            data.subtitle = data.subtitle?.replace(Regex("</b>"), "\"")
-            data.subtitle = data.subtitle?.replace(Regex("<b>"), "\"")
+            data.title = data.title?.replace(Regex("</b>|<b>"), "")
+            data.subtitle = data.subtitle?.replace(Regex("</b>|<b>"), "")
 
             movie = data
             viewModel = this@MovieRVAdapter.viewModel
