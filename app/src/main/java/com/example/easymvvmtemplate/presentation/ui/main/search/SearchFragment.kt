@@ -20,12 +20,13 @@ import com.example.easymvvmtemplate.presentation.adapter.MovieRVAdapter
 import com.example.easymvvmtemplate.presentation.base.BaseFragment
 import org.koin.android.viewmodel.ext.android.viewModel
 
-internal class SearchFragment : BaseFragment<SearchViewModel>(), View.OnKeyListener {
+class SearchFragment : BaseFragment<SearchViewModel>(), View.OnKeyListener {
 
     private lateinit var binding: FragmentMovieSearchBinding
 
+
     /**
-     * viewModel 생성
+     * Koin viewModel 생성
      */
     private val viewModel: SearchViewModel by viewModel()
 
@@ -36,9 +37,11 @@ internal class SearchFragment : BaseFragment<SearchViewModel>(), View.OnKeyListe
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        //view 가 아직 안 만들어짐.
         /**
          * data binding 연결
          */
+
         binding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_movie_search, container, false)
         binding.lifecycleOwner = viewLifecycleOwner //없으면 data binding 안 됨.
@@ -50,14 +53,21 @@ internal class SearchFragment : BaseFragment<SearchViewModel>(), View.OnKeyListe
 
         return binding.root
 
+    }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+//        val movieRepository = MovieRepository()
+//        viewModel = ViewModelProvider(this, MainViewModelFactory(movieRepository)).get(SearchViewModel::class.java)
+//
+//        movieRepository 를 매번 생성해야 한다 -> 싱글턴의 필요성 -> DI
+
+
+        binding.movieSearchEt.setOnKeyListener(this@SearchFragment)
     }
 
 
-    /**
-     * If the Lifecycle object is not in an active state, then the observer isn't called even if the value changes.
-     * After the Lifecycle object is destroyed, the observer is automatically removed.
-     */
     override fun observeData() {
 
         viewModel.searchStateLiveData.observe(viewLifecycleOwner) { state ->
@@ -77,11 +87,6 @@ internal class SearchFragment : BaseFragment<SearchViewModel>(), View.OnKeyListe
             }
         }
 
-
-        viewModel.noImage.observe(viewLifecycleOwner) {
-            //binding.searchMovieTv.isVisible = it == true //data binding 으로 넣으면 작동 안 함.
-            Log.d("searchFrag", it.toString())
-        }
     }
 
     private fun initViews() {
@@ -92,7 +97,7 @@ internal class SearchFragment : BaseFragment<SearchViewModel>(), View.OnKeyListe
         val viewModel = binding.viewModel
         val decoration = DividerItemDecoration(requireContext(), VERTICAL)
 
-        movieRVAdapter = MovieRVAdapter(viewModel) //ok?
+        movieRVAdapter = MovieRVAdapter(viewModel)
         binding.movieRecyclerView.apply {
             adapter = movieRVAdapter
             layoutManager = LinearLayoutManager(requireContext())

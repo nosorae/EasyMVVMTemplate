@@ -8,7 +8,7 @@ import com.example.easymvvmtemplate.presentation.adapter.MainVPAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 import org.koin.android.viewmodel.ext.android.viewModel
 
-internal class MainActivity : BaseActivity<MainViewModel>() {
+class MainActivity : BaseActivity<MainViewModel>() {
 
     private lateinit var binding: ActivityMainBinding
     override val viewModel: MainViewModel by viewModel() //viewModel 이 필요가 없음.

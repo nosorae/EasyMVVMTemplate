@@ -7,9 +7,8 @@ import android.view.ViewGroup
 import com.example.easymvvmtemplate.R
 import com.example.easymvvmtemplate.databinding.FragmentFavoriteBinding
 import com.example.easymvvmtemplate.presentation.base.BaseFragment
-import com.example.easymvvmtemplate.presentation.ui.main.search.SearchState
-import org.koin.android.viewmodel.ext.android.viewModel
 
+class FavoriteFragment : BaseFragment<FavoritesViewModel>() {
 /**
  * 아직 View 를 구현하지 못했습니다.
  * 그러나 Room - Repository - UseCase - ViewModel 흐름은 구현해 뒀으니 참고할 수 있습니다.
@@ -17,6 +16,8 @@ import org.koin.android.viewmodel.ext.android.viewModel
 internal class FavoriteFragment : BaseFragment<FavoritesViewModel>() {
 
     private lateinit var binding : FragmentFavoriteBinding
+    private var testNum = 0
+    //aac viewModel 은 하나만 가능하니까 이거는 실행 불가능? -> yes.
     private val viewModel: FavoritesViewModel by viewModel()
 
     override fun onCreateView(

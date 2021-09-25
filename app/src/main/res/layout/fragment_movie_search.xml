@@ -66,8 +66,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:visibility="gone"
-        tools:visibility="visible"
+        android:visibility="@{viewModel.noImage ? View.VISIBLE :View.GONE}"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

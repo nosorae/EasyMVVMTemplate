@@ -11,22 +11,15 @@ import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 
-internal abstract class BaseFragment <VM: BaseViewModel>: Fragment() {
-//    abstract val viewModel: VM
+abstract class BaseFragment <VM: BaseViewModel>: Fragment() {
+    abstract val viewModel: VM
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return super.onCreateView(inflater, container, savedInstanceState)
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         observeData()
     }
 
     abstract fun observeData()
-
-
 
 
     internal fun checkLocationPermissions(): Boolean =
