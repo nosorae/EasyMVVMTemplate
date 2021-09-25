@@ -2,8 +2,7 @@ package com.example.easymvvmtemplate.domain.use_case.movies
 
 import android.util.Log
 import com.example.easymvvmtemplate.common.Resource
-import com.example.easymvvmtemplate.data.remote.movie.dto.MovieDto
-import com.example.easymvvmtemplate.data.remote.movie.dto.toMovie
+import com.example.easymvvmtemplate.data.remote.dto.toMovie
 import com.example.easymvvmtemplate.domain.model.Movie
 import com.example.easymvvmtemplate.domain.repository.MovieRepository
 import kotlinx.coroutines.flow.Flow

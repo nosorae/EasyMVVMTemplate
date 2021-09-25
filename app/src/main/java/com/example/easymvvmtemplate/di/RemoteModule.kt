@@ -1,7 +1,7 @@
 package com.example.easymvvmtemplate.di
 
 import com.example.easymvvmtemplate.common.Constants
-import com.example.easymvvmtemplate.data.remote.movie.MovieApi
+import com.example.easymvvmtemplate.data.remote.MovieApi
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

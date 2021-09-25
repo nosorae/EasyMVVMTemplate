@@ -6,25 +6,24 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import androidx.lifecycle.viewModelScope
 import com.example.easymvvmtemplate.common.Resource
-import com.example.easymvvmtemplate.data.remote.movie.dto.MovieItem
 import com.example.easymvvmtemplate.domain.model.Movie
 import com.example.easymvvmtemplate.domain.use_case.movies.GetMoviesUseCase
 import com.example.easymvvmtemplate.presentation.base.BaseViewModel
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.launch
 
 class SearchViewModel(
     private val getMoviesUseCase: GetMoviesUseCase
-    ) : BaseViewModel() {
-
+) : BaseViewModel() {
     private val _searchStateLiveData = MutableLiveData<SearchState>(SearchState.UnInitialized)
     val searchStateLiveData: LiveData<SearchState>  get() = _searchStateLiveData
 
-    val noImage : LiveData<Boolean> = Transformations.map(_searchStateLiveData) { state ->
+
+    val noImage: LiveData<Boolean> = Transformations.map(_searchStateLiveData) { state ->
         //_movieListLiveData 가 변할 때 마다 noImage value 가 변함.
-        state == SearchState.Error || state == SearchState.Success(emptyList()) ||
-                state == SearchState.Loading
+        state == SearchState.Error
+                || state == SearchState.Success(emptyList())
+                || state == SearchState.Loading
     }
 
     fun getMovies(keyword: String, display: Int) {
@@ -33,7 +32,7 @@ class SearchViewModel(
             keyword = keyword,
             display = display
         ).onEach { result ->
-            when(result) {
+            when (result) {
                 is Resource.Loading -> {
                     _searchStateLiveData.value = SearchState.Loading
                 }

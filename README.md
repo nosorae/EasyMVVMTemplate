@@ -4,6 +4,8 @@
 - Koin
 - LiveData
 - DataBinding
-
+- Coroutine Flow
+- Retrofit
+- Room
 
 🚧 진행 중 🚧

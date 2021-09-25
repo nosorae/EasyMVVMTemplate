@@ -1,6 +1,5 @@
-package com.example.easymvvmtemplate.util
+package com.example.easymvvmtemplate.common.util
 
-import android.graphics.drawable.Drawable
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide

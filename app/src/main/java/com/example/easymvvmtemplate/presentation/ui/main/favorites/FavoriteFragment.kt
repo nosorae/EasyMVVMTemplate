@@ -7,13 +7,16 @@ import android.view.ViewGroup
 import com.example.easymvvmtemplate.R
 import com.example.easymvvmtemplate.databinding.FragmentFavoriteBinding
 import com.example.easymvvmtemplate.presentation.base.BaseFragment
+import org.koin.android.viewmodel.ext.android.viewModel
 
-class FavoriteFragment : BaseFragment<FavoriteViewModel>() {
+class FavoriteFragment : BaseFragment<FavoritesViewModel>() {
+    /**
+     * 아직 View 를 구현하지 못했습니다.
+     * 그러나 Room - Repository - UseCase - ViewModel 흐름은 구현해 뒀으니 참고할 수 있습니다.
+     */
 
-    private lateinit var binding : FragmentFavoriteBinding
-    override lateinit var viewModel: FavoriteViewModel
-    private var testNum = 0
-    //aac viewModel 은 하나만 가능하니까 이거는 실행 불가능? -> yes.
+    private lateinit var binding: FragmentFavoriteBinding
+    override val viewModel: FavoritesViewModel by viewModel()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -21,23 +24,29 @@ class FavoriteFragment : BaseFragment<FavoriteViewModel>() {
     ): View? {
         // Inflate the layout for this fragment
         val root = inflater.inflate(R.layout.fragment_favorite, container, false)
-//        viewModel = getViewModel()
         binding = FragmentFavoriteBinding.bind(root)
-//
-//        binding.testBtn.setOnClickListener {
-//            viewModel.setTestVar(testNum.toString())
-//            testNum++
-//        }
-
 
 
         return binding.root
     }
 
     override fun observeData() {
-//        viewModel.testVar.observe(viewLifecycleOwner) {
-//            Log.d("favoriteFrag", it)
-//            binding.testTv.text = it
-//        }
+        viewModel.favoritesStateLiveData.observe(viewLifecycleOwner) { state ->
+            when (state) {
+                is FavoritesState.UnInitialized -> {
+
+                }
+                is FavoritesState.Loading -> {
+
+                }
+                is FavoritesState.Success -> {
+
+                }
+                is FavoritesState.Error -> {
+
+                }
+            }
+        }
+
     }
 }

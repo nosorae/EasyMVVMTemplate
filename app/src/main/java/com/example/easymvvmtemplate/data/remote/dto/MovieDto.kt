@@ -1,4 +1,4 @@
-package com.example.easymvvmtemplate.data.remote.movie.dto
+package com.example.easymvvmtemplate.data.remote.dto
 
 
 import com.google.gson.annotations.SerializedName

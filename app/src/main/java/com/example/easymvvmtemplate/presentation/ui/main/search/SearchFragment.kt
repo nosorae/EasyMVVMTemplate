@@ -24,7 +24,9 @@ class SearchFragment : BaseFragment<SearchViewModel>(), View.OnKeyListener {
 
     private lateinit var binding: FragmentMovieSearchBinding
 
-    //Koin - viewModel 생성
+    /**
+     * viewModel 생성
+     */
     override val viewModel: SearchViewModel by viewModel()
 
     private lateinit var movieRVAdapter: MovieRVAdapter
@@ -54,8 +56,11 @@ class SearchFragment : BaseFragment<SearchViewModel>(), View.OnKeyListener {
 //        val movieRepository = MovieRepository()
 //        viewModel = ViewModelProvider(this, MainViewModelFactory(movieRepository)).get(SearchViewModel::class.java)
 
-
         binding.movieSearchEt.setOnKeyListener(this@SearchFragment)
+
+
+        observeData()
+
     }
 
 
@@ -79,9 +84,8 @@ class SearchFragment : BaseFragment<SearchViewModel>(), View.OnKeyListener {
         }
 
     }
+
     private fun initViews() {
-        binding.searchMovieTv.isGone = false
-        binding.movieRecyclerView.isGone = true
         initRecyclerView()
     }
 
@@ -103,22 +107,12 @@ class SearchFragment : BaseFragment<SearchViewModel>(), View.OnKeyListener {
 
     private fun handleSuccessState(movies: List<Movie>) = with(binding) {
         searchProgressBar.isGone = true
-        if (movies.isNullOrEmpty()) {
-            searchMovieTv.isGone = false
-            movieRecyclerView.isGone = true
-        } else {
-            searchMovieTv.isGone = true
-            movieRecyclerView.isGone = false
-            movieRVAdapter.setMovieList(movies)
-        }
-
+        movieRVAdapter.setMovieList(movies)
     }
 
     private fun handleErrorState() {
         binding.searchProgressBar.isGone = true
-        binding.searchMovieTv.isGone = false
         showToast(R.string.toast_api_error)
-
     }
 
 
