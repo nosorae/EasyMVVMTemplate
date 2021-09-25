@@ -17,16 +17,14 @@ import kotlinx.coroutines.launch
 class SearchViewModel(
     private val getMoviesUseCase: GetMoviesUseCase
     ) : BaseViewModel() {
-    //viewModel , lifecycle -> jetpack lifecycle library
-    //The purpose of ViewModel is to encapsulate the data for a UI controller to let the data survive configuration changes.
 
     private val _searchStateLiveData = MutableLiveData<SearchState>(SearchState.UnInitialized)
-    val searchStateLiveData: LiveData<SearchState> = _searchStateLiveData
+    val searchStateLiveData: LiveData<SearchState>  = _searchStateLiveData
 
     val noImage : LiveData<Boolean> = Transformations.map(_searchStateLiveData) { state ->
-        // This LiveData depends on another so we can use a transformation.
         //_movieListLiveData 가 변할 때 마다 noImage value 가 변함.
-        state == SearchState.Error || state == SearchState.Success(emptyList())
+        state == SearchState.Error || state == SearchState.Success(emptyList()) ||
+                state == SearchState.Loading
     }
 
     fun getMovies(keyword: String, display: Int) {
@@ -48,11 +46,10 @@ class SearchViewModel(
             }
         }.launchIn(viewModelScope)
 
-
     }
+
     fun onMovieItemClicked(movie : Movie) {
         Log.d("searchViewModel", "${movie.title} clicked!")
-        //좋아요 등록? 또는 상세페이지 로직.
     }
 
 }

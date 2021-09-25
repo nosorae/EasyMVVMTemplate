@@ -19,8 +19,6 @@ class MovieRVAdapter(
 
         fun bindData(data: Movie) = with(binding) {
 
-            //bindingAdapter
-
             data.title = data.title?.replace(Regex("</b>|<b>"), "")
             data.subtitle = data.subtitle?.replace(Regex("</b>|<b>"), "")
 
