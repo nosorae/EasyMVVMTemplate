@@ -28,5 +28,4 @@ class FavoritesViewModel(
         _favoritesStateLiveData.postValue(FavoritesState.Success(getFavoritesUseCase()))
     }
 
-
 }

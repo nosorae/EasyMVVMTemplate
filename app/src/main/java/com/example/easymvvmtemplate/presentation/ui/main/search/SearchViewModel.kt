@@ -24,7 +24,7 @@ class SearchViewModel(
     val noImage : LiveData<Boolean> = Transformations.map(_searchStateLiveData) { state ->
         //_movieListLiveData 가 변할 때 마다 noImage value 가 변함.
         state == SearchState.Error || state == SearchState.Success(emptyList()) ||
-                state == SearchState.Loading
+                state == SearchState.Loading || state == SearchState.UnInitialized
     }
 
     fun getMovies(keyword: String, display: Int) {
@@ -45,7 +45,6 @@ class SearchViewModel(
                 }
             }
         }.launchIn(viewModelScope)
-
 
     }
 

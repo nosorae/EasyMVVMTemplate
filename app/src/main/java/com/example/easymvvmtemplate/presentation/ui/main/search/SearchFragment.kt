@@ -28,7 +28,7 @@ class SearchFragment : BaseFragment<SearchViewModel>(), View.OnKeyListener {
     /**
      * Koin viewModel 생성
      */
-    private val viewModel: SearchViewModel by viewModel()
+    override val viewModel: SearchViewModel by viewModel()
 
     private lateinit var movieRVAdapter: MovieRVAdapter
 
@@ -46,7 +46,6 @@ class SearchFragment : BaseFragment<SearchViewModel>(), View.OnKeyListener {
             DataBindingUtil.inflate(inflater, R.layout.fragment_movie_search, container, false)
         binding.lifecycleOwner = viewLifecycleOwner //없으면 data binding 안 됨.
         binding.viewModel = viewModel
-        binding.movieSearchEt.setOnKeyListener(this@SearchFragment)
 
 
         observeData()
@@ -57,13 +56,6 @@ class SearchFragment : BaseFragment<SearchViewModel>(), View.OnKeyListener {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-//        val movieRepository = MovieRepository()
-//        viewModel = ViewModelProvider(this, MainViewModelFactory(movieRepository)).get(SearchViewModel::class.java)
-//
-//        movieRepository 를 매번 생성해야 한다 -> 싱글턴의 필요성 -> DI
-
-
         binding.movieSearchEt.setOnKeyListener(this@SearchFragment)
     }
 
@@ -89,7 +81,7 @@ class SearchFragment : BaseFragment<SearchViewModel>(), View.OnKeyListener {
 
     }
 
-    private fun initViews() {
+    private fun initViews() = with(binding) {
         initRecyclerView()
     }
 
@@ -105,8 +97,8 @@ class SearchFragment : BaseFragment<SearchViewModel>(), View.OnKeyListener {
         }
     }
 
-    private fun handleLoadingState() {
-        binding.searchProgressBar.isGone = false
+    private fun handleLoadingState() = with(binding){
+        searchProgressBar.isGone = false
     }
 
     private fun handleSuccessState(movies: List<Movie>) = with(binding) {
@@ -114,8 +106,8 @@ class SearchFragment : BaseFragment<SearchViewModel>(), View.OnKeyListener {
         movieRVAdapter.setMovieList(movies)
     }
 
-    private fun handleErrorState() {
-        binding.searchProgressBar.isGone = true
+    private fun handleErrorState() = with(binding) {
+        searchProgressBar.isGone = true
         showToast(R.string.toast_api_error)
     }
 
