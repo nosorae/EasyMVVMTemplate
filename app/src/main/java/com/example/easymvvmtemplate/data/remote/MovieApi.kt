@@ -1,8 +1,7 @@
-package com.example.easymvvmtemplate.data.remote.movie
+package com.example.easymvvmtemplate.data.remote
 
 import com.example.easymvvmtemplate.common.Constants
-import com.example.easymvvmtemplate.data.remote.movie.dto.MovieDto
-import retrofit2.Response
+import com.example.easymvvmtemplate.data.remote.dto.MovieDto
 import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.Query

@@ -3,7 +3,6 @@ package com.example.easymvvmtemplate.presentation.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.easymvvmtemplate.data.remote.movie.dto.MovieItem
 import com.example.easymvvmtemplate.databinding.ViewholderMovieItemBinding
 import com.example.easymvvmtemplate.domain.model.Movie
 import com.example.easymvvmtemplate.presentation.ui.main.search.SearchViewModel

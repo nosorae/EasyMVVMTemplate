@@ -1,4 +1,4 @@
-package com.example.easymvvmtemplate.util
+package com.example.easymvvmtemplate.common.util
 
 import android.util.Log
 import androidx.annotation.MainThread

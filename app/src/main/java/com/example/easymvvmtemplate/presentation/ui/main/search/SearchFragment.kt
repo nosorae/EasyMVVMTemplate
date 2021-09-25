@@ -24,8 +24,6 @@ internal class SearchFragment : BaseFragment<SearchViewModel>(), View.OnKeyListe
 
     private lateinit var binding: FragmentMovieSearchBinding
 
-    //override val viewModel : SearchViewModel by viewModel<SearchViewModel>()
-    //lazy 는 왜 안 되는지 잘 모르겠음
     /**
      * viewModel 생성
      */
@@ -48,33 +46,13 @@ internal class SearchFragment : BaseFragment<SearchViewModel>(), View.OnKeyListe
         binding.movieSearchEt.setOnKeyListener(this@SearchFragment)
 
 
-
         observeData()
 
         return binding.root
 
-        /*
-        2. ViewModelProvider.Factory
-        val movieRepository = MovieRepository()
-        viewModel = ViewModelProvider(this, MainViewModelFactory(movieRepository)).get(SearchViewModel::class.java)
-
-        movieRepository 를 매번 생성해야 한다 -> 싱글턴의 필요성 -> DI
-        */
-
-
-        //data binding 이 안 됨.
-//        binding = FragmentMovieSearchBinding.inflate(
-//            inflater,
-//            container,
-//            false
-//        ).apply {
-//            lifecycleOwner = viewLifecycleOwner
-//            viewModel = viewModel
-//            movieSearchEt.setOnKeyListener(this@SearchFragment)
-//        }
-
 
     }
+
 
     /**
      * If the Lifecycle object is not in an active state, then the observer isn't called even if the value changes.
@@ -105,9 +83,8 @@ internal class SearchFragment : BaseFragment<SearchViewModel>(), View.OnKeyListe
             Log.d("searchFrag", it.toString())
         }
     }
+
     private fun initViews() {
-        binding.searchMovieTv.isGone = false
-        binding.movieRecyclerView.isGone = true
         initRecyclerView()
     }
 
@@ -129,22 +106,12 @@ internal class SearchFragment : BaseFragment<SearchViewModel>(), View.OnKeyListe
 
     private fun handleSuccessState(movies: List<Movie>) = with(binding) {
         searchProgressBar.isGone = true
-        if (movies.isNullOrEmpty()) {
-            searchMovieTv.isGone = false
-            movieRecyclerView.isGone = true
-        } else {
-            searchMovieTv.isGone = true
-            movieRecyclerView.isGone = false
-            movieRVAdapter.setMovieList(movies)
-        }
-
+        movieRVAdapter.setMovieList(movies)
     }
 
     private fun handleErrorState() {
         binding.searchProgressBar.isGone = true
-        binding.searchMovieTv.isGone = false
         showToast(R.string.toast_api_error)
-
     }
 
 
@@ -163,7 +130,6 @@ internal class SearchFragment : BaseFragment<SearchViewModel>(), View.OnKeyListe
     private fun getMovies(keyword: String) {
         viewModel.getMovies(keyword, 20)
     }
-
 
 
 }

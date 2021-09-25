@@ -1,7 +1,5 @@
 package com.example.easymvvmtemplate.domain.model
 
-import com.google.gson.annotations.SerializedName
-
 /**
  * Domain layer 에서 필요한 데이터만 Dto 에서 가져와서 model 로 사용
  */
