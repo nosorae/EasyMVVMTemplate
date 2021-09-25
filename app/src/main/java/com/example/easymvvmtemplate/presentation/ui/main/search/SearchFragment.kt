@@ -53,8 +53,6 @@ class SearchFragment : BaseFragment<SearchViewModel>(), View.OnKeyListener {
 
 //        val movieRepository = MovieRepository()
 //        viewModel = ViewModelProvider(this, MainViewModelFactory(movieRepository)).get(SearchViewModel::class.java)
-//
-//        movieRepository 를 매번 생성해야 한다 -> 싱글턴의 필요성 -> DI
 
 
         binding.movieSearchEt.setOnKeyListener(this@SearchFragment)

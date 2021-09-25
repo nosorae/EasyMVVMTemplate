@@ -19,7 +19,7 @@ class SearchViewModel(
     ) : BaseViewModel() {
 
     private val _searchStateLiveData = MutableLiveData<SearchState>(SearchState.UnInitialized)
-    val searchStateLiveData: LiveData<SearchState>  = _searchStateLiveData
+    val searchStateLiveData: LiveData<SearchState>  get() = _searchStateLiveData
 
     val noImage : LiveData<Boolean> = Transformations.map(_searchStateLiveData) { state ->
         //_movieListLiveData 가 변할 때 마다 noImage value 가 변함.
